@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Date Teller</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://kit.fontawesome.com/8c5df67c5e.js" crossorigin="anonymous"></script>
+    <script defer src="render.js"></script>
+  </head>
+  <body>
+    <nav class="navbar is-dark">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="index.html">
+          <i class="fas fa-calendar-alt fa-3x"></i>
+        </a>
+      </div>
+      <div id="navbarContent" class="navbar-menu">
+        <div class="navbar-start">
+          <!-- navbar items -->
+        </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <p class="control">
+            <button id='githubButton' class="button is-medium is-dark" href="https://github.com/Mikkeep/DateTeller">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+              <span>GitHub</span>
+            </button>
+          </p>
+        </div>
+    </div>
+    </div>
+    </nav>
+    <div class="content is-medium p-6">
+      <button id="infoText" style="display: none;" class="button is-ghost pb-6 has-text-left ml-0">Click to expand</button>
+      <article id="messagebox" class="message is-warning is-medium">
+        <div class="message-header">
+          <p>Info</p>
+          <button id="deleteButton" class="delete" aria-label="delete"></button>
+        </div>
+        <div class="message-body">
+      <h1>Date Teller</h1>
+      <p>This app will tell you the day of the week of any chosen date <br> Input a date in the boxes below, and the result will appear under <br> The date can be in the past or in the future</p>
+    </div>
+  </article>
+      <p>Input the date with the following format: <strong>DD/MM/YY</strong></p>
+      <div class="block">
+      <div class="field field is-grouped is-grouped-centered">
+
+        <p class="control is-expanded has-icons-left">
+          <input id="day" class="input is-dark" type="email" placeholder="Day">
+          <span class="icon is-small is-left">
+            <i class="fas fa-calendar-alt"></i>
+          </span>
+        </p>
+
+        <p class="control is-expanded has-icons-left">
+          <input id="month" class="input is-dark" type="email" placeholder="Month">
+          <span class="icon is-small is-left">
+            <i class="fas fa-calendar-alt"></i>
+          </span>
+        </p>
+
+        <p class="control is-expanded has-icons-left">
+          <input id="year" class="input is-dark" type="email" placeholder="Year">
+          <span class="icon is-small is-left">
+            <i class="fas fa-calendar-alt"></i>
+          </span>
+        </p>
+
+        <input id="processDate" class="button is-rounded is-dark" type="submit" value="Calculate day">
+
+      </div>
+    </div>
+    </div>
+    <div style="display: none;" id="result" class="box is-medium is-dark has-text-centered is-size-3-desktop is-size-4-touch">
+      The day is: 
+    </style>
+    </div>
+    </body>
+</html>
