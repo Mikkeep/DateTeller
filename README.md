@@ -11,3 +11,9 @@ The app is used by giving the input slots values in <b> DD/MM/YY </b> format.
 <br>
 For single months no leading zero is used.<br>
 Same goes for months.
+<br>
+<br>
+TODO: <br>
+- Automatic updates <br>
+- Improve GUI <br>
+- Error handling <br>
