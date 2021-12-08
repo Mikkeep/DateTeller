@@ -52,14 +52,9 @@ Menu.setApplicationMenu(navbar);
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow);
 
-app.on('ready', () => {
-  updateApp = require('update-electron-app');
-
-  updateApp({
-      updateInterval: '1 hour',
-      notifyUser: true
-  });
-});
+require('update-electron-app')({
+  updateInterval: '1 hour'
+})
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
