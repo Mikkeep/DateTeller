@@ -13,8 +13,8 @@
     "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
     "package-win": "electron-packager . DateTeller --overwrite --asar=true --platform=win32 --arch=ia32 --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"DateTeller\"",
     "package-linux": "electron-packager . DateTeller --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/date_icon.jpeg --prune=true --out=release-builds",
-    "build": "electron-builder build --mac --win --linux --publish never",
-    "deploy": "electron-builder build --mac --win --linux --publish always"
+    "build": "electron-builder build --mac --win --publish never",
+    "deploy": "electron-builder build --mac --win --publish always"
   },
   "keywords": [],
   "author": {
