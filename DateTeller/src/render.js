@@ -11,18 +11,30 @@ let result;
 const processDate = document.getElementById("processDate");
 processDate.onclick = e => {
     document.getElementById("result").style.display="block";
-    day = document.getElementById("day").value;
-    month = document.getElementById("month").value;
-    year = centuryNum(document.getElementById("year").value);
+    day = parseInt(document.getElementById("day").value, 10);
+    month = parseInt(document.getElementById("month").value, 10);
+    year = parseInt(centuryNum(document.getElementById("year").value), 10);
     multiple = multipleNum(document.getElementById("year").value);
     leap = checkLeap(document.getElementById("year").value);
     combined = Math.floor( ( multiple + year ) % 7 );
-    if ( day < 1 || month < 1 ) {
+    if ( typeof(day) != "number" || typeof(month) != "number" || typeof(year) != "number" ) {
         document.getElementById("result").style.background="red";
-        document.getElementById("result").innerText = "No negative values!"
+        document.getElementById("result").innerText = "Only numbers allowed!";
+    }
+    else if ( day > 31 ) {
+        document.getElementById("result").style.background="yellow";
+        document.getElementById("result").innerText = "Maximum day of a month is 31!";
+    }
+    else if ( month > 12 ) {
+        document.getElementById("result").style.background="yellow";
+        document.getElementById("result").innerText = "Last month of the year is December!";
+    }
+    else if ( day < 1 || month < 1 ) {
+        document.getElementById("result").style.background="red";
+        document.getElementById("result").innerText = "No negative values!";
     }
     else {
-        month = parseInt(month, 10);
+//        month = parseInt(month, 10);
         switch ( month ) {
             case 1:
                 if ( leap != 0 ) {
@@ -105,7 +117,7 @@ processDate.onclick = e => {
               result = "Saturday";
           }
         document.getElementById("result").style.background="burlywood";
-        document.getElementById("result").innerText = result;
+        document.getElementById("result").innerText = "The day is: " + result;
     }
 };
 
