@@ -63,7 +63,11 @@ const restartButton = document.getElementById('restart-button');ipcRenderer.on('
     </div>
     </nav>
     <div class="content is-medium p-6">
-      <button id="infoText" style="display: none;" class="button is-ghost pb-6 has-text-left ml-0">Click to expand</button>
+      <button id="infoText" style="display: none;" class="button is-warning">
+      <span class="icon">
+        <i class="fas fa-plus"></i>
+      </span>
+      </button>
       <article id="messagebox" class="message is-warning is-medium">
         <div class="message-header">
           <p>Info</p>
@@ -71,9 +75,9 @@ const restartButton = document.getElementById('restart-button');ipcRenderer.on('
         </div>
         <div class="message-body">
       <h1>Date Teller</h1>
-      <p>This app will tell you the day of the week of any chosen date <br> Input a date in the boxes below, and the result will appear under <br> The date can be in the past or in the future</p>
+      <p>This app will tell you the day of the week of any chosen date <br> Input a date in the boxes below, and the result will appear under <br> The date can be in the past or in the future (Leading zeroes are removed from inputs)</p>
     </div>
-  </article>
+  </article class="input-guide">
       <p>Input the date with the following format: <strong>DD/MM/YY</strong></p>
       <div class="block">
       <div class="field field is-grouped is-grouped-centered">
