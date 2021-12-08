@@ -11,7 +11,7 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 1024,
+    width: 1200,
     height: 850,
     icon: __dirname + '/img/date_icon.jpeg',
     webPreferences: {

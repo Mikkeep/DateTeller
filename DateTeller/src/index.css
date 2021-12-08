@@ -17,3 +17,12 @@ body {
 .hidden {
   display: none;
 }
+
+.bottomMark
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-right: 1em;
+    padding-bottom: 1em;
+}
