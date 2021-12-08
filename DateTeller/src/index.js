@@ -1,5 +1,7 @@
   const { app, BrowserWindow, Menu, ipcMain } = require('electron');
 const path = require('path');
+const { autoUpdater } = require('electron-updater');
+
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -23,6 +25,9 @@ const createWindow = () => {
 
   // Open the DevTools.
 //  mainWindow.webContents.openDevTools();
+  mainWindow.once('ready-to-show', () => {
+    autoUpdater.checkForUpdatesAndNotify();
+    });
 };
 
 var navbar = Menu.buildFromTemplate([
@@ -76,3 +81,15 @@ ipcMain.on('hotspot-event', ( event ) => {
   event.returnValue = 'Message received!'
   require('electron').shell.openExternal(`https://github.com/Mikkeep/DateTeller`);
 })
+
+autoUpdater.on('update-available', () => {
+  mainWindow.webContents.send('update_available');
+});
+
+autoUpdater.on('update-downloaded', () => {
+  mainWindow.webContents.send('update_downloaded');
+});
+
+ipcMain.on('restart_app', () => {
+  autoUpdater.quitAndInstall();
+});
