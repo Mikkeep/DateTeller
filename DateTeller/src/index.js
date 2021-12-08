@@ -25,9 +25,9 @@ const createWindow = () => {
 
   // Open the DevTools.
 //  mainWindow.webContents.openDevTools();
-  mainWindow.once('ready-to-show', () => {
-    autoUpdater.checkForUpdatesAndNotify();
-    });
+//  mainWindow.once('ready-to-show', () => {
+//    autoUpdater.checkForUpdatesAndNotify();
+//    });
 };
 
 var navbar = Menu.buildFromTemplate([
@@ -80,17 +80,17 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
-
+/*
 ipcMain.on('app_version', (event) => {
   event.sender.send('app_version', { version: app.getVersion() });
 });
-
+*/
 
 ipcMain.on('hotspot-event', ( event ) => {
   event.returnValue = 'Message received!'
   require('electron').shell.openExternal(`https://github.com/Mikkeep/DateTeller`);
 })
-
+/*
 autoUpdater.on('update-available', () => {
   mainWindow.webContents.send('update_available');
 });
@@ -102,3 +102,4 @@ autoUpdater.on('update-downloaded', () => {
 ipcMain.on('restart_app', () => {
   autoUpdater.quitAndInstall();
 });
+*/
