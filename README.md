@@ -9,8 +9,7 @@ More of this algoritm here: https://en.wikipedia.org/wiki/Doomsday_rule
 <br>
 The app is used by giving the input slots values in <b> DD/MM/YY </b> format.
 <br>
-For single months no leading zero is used.<br>
-Same goes for months.
+For single digit months or days no leading zero is needed. But leading zeroes are removed anyway if used<br>
 <br>
 <br>
 TODO: <br>
