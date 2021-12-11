@@ -10,6 +10,33 @@
     <script defer src="render.js"></script>
   </head>
   <body>
+    <html style = 'overflow-y:auto'></html>
+    <div id="title-bar">
+      <div id="titleofApp">
+        DateTeller
+      </div>
+      <div id="title-bar-btns">
+
+        <button id="min-btn" class="button is-dark is-small">
+          <span class="icon">
+            <i class="fas fa-minus"></i>
+          </span>
+        </button>
+
+        <button id="max-btn" class="button is-dark is-small">
+          <span class="icon">
+            <i class="fas fa-expand"></i>
+          </span>
+        </button>
+
+        <button id="close-btn" class="button is-dark is-small">
+          <span class="icon">
+            <i class="far fa-times-circle"></i>
+          </span>
+        </button>
+
+   </div>
+    </div>
     <div id="notification" class="hidden">
       <p id="message"></p>
       <button id="close-button" onClick="closeNotification()">
@@ -113,7 +140,22 @@ const restartButton = document.getElementById('restart-button');ipcRenderer.on('
     </style>
     </div>
     <div class="bottomMark">
-      @Mikkeep <br> V.
+      @Mikkeep <br> <p id="version" class="pl-1">
+      </p>
     </div>
     </body>
+    <script>
+      require('electron').ipcRenderer.on('app_version', (event, message) => {
+        document.getElementById("version").innerText = " V. " + message.version;
+      console.log(message) // Prints 'whoooooooh!'
+    })
+/*      const { ipcRenderer } = require('electron');
+      const version = document.getElementById('version');
+
+      ipcRenderer.send('app_version');
+      ipcRenderer.on('app_version', (event, arg) => {
+        ipcRenderer.removeAllListeners('app_version');
+        version.innerText = arg.version;
+    });
+*/    </script>
 </html>

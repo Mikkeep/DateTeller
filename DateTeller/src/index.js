@@ -13,9 +13,16 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 1200,
     height: 850,
+    frame: false,
+//    titleBarStyle: 'hidden',
+//    titleBarOverlay: {
+//      color: '#deb887',
+//      symbolColor: '#4a4a4a'
+//    },
     icon: __dirname + '/img/date_icon.jpeg',
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
       preload: path.join(__dirname, 'preload.js')
     }
   });
@@ -75,16 +82,33 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
-/*
+
 ipcMain.on('app_version', (event) => {
+  event.returnValue = "I got the msg!";
   event.sender.send('app_version', { version: app.getVersion() });
 });
-*/
+
+ipcMain.on('minimizing-event', (event) => {
+  event.returnValue = "I got the msg!";
+  BrowserWindow.getFocusedWindow().minimize();
+});
+
+ipcMain.on('maximizing-event', (event) => {
+  event.returnValue = "I got the msg!";
+  BrowserWindow.getFocusedWindow().isMaximized() ? BrowserWindow.getFocusedWindow().restore() : BrowserWindow.getFocusedWindow().maximize();
+});
+
+ipcMain.on('closing-event', (event) => {
+  event.returnValue = "I got the msg!";
+  BrowserWindow.getFocusedWindow().close();
+});
+
 
 ipcMain.on('hotspot-event', ( event ) => {
   event.returnValue = 'Message received!'
   require('electron').shell.openExternal(`https://github.com/Mikkeep/DateTeller`);
 })
+
 /*
 autoUpdater.on('update-available', () => {
   mainWindow.webContents.send('update_available');

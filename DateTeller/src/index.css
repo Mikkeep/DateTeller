@@ -1,32 +1,106 @@
 body {
+
   background-color: burlywood;
+
   height: 100vh;
-  padding: 2rem;
+
+  padding: 0rem;
+
 }
 
 #notification {
+
   position: fixed;
+
   bottom: 20px;
+
   left: 20px;
+
   width: 200px;
+
   padding: 20px;
+
   border-radius: 5px;
+
   background-color: white;
+
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
 }
+
+#title-bar {
+
+  -webkit-app-region: drag;
+ 
+  height: 25px; 
+ 
+  background-color: #363636;
+ 
+  padding: none;
+ 
+  margin: 0px; 
+ 
+ }
+
+#titleofApp {
+
+  position: absolute;
+
+  top: 0;
+
+  right: 50%;
+
+  padding-top: 0.25em;
+
+  color: aliceblue;
+}
+
+ #title-bar-btns {
+
+  -webkit-app-region: no-drag;
+
+  background-color: #363636;
+
+  position: absolute;
+ 
+  top: 0;
+ 
+  right: 0;
+
+  padding-right: 0.5em;
+
+  padding-bottom: 1em;
+ 
+ }
+
 .hidden {
+
   display: none;
+
 }
 
 .bottomMark
 {
     position: absolute;
+
     bottom: 0;
+
     right: 0;
+
     padding-right: 1em;
+
     padding-bottom: 1em;
+
 }
 
 .input-guide {
+
   padding-top: 4em;
+
+}
+
+#version {
+
+  font-weight: bold;
+
 }
